@@ -1,6 +1,5 @@
 .dockerignore
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 Dockerfile
 README.md
@@ -20,6 +19,5 @@ yin_resume_api/models/base_model.py
 yin_resume_api/models/desc.py
 yin_resume_api/openapi/openapi.yaml
 yin_resume_api/test/__init__.py
-yin_resume_api/test/test_resume_controller.py
 yin_resume_api/typing_utils.py
 yin_resume_api/util.py

@@ -11,7 +11,7 @@ externalDocs:
   description: Find out more about Swagger
   url: http://swagger.io
 servers:
-- url: http://petstore.swagger.io/v2
+- url: /v1
 tags:
 - description: Everything about your reume
   name: resume
@@ -50,7 +50,7 @@ paths:
       summary: Find person description by ID
       tags:
       - resume
-      x-openapi-router-controller: openapi_server.controllers.resume_controller
+      x-openapi-router-controller: yin_resume_api.controllers.resume_controller
 components:
   schemas:
     Desc:
