@@ -1,0 +1,36 @@
+{
+    "steps": [
+        {
+            "name": "python3",
+            "entrypoint": "pip",
+            "args": [
+                "install",
+                "-r",
+                "requirements.txt",
+                "--user"
+            ]
+        },
+        {
+            "name": "gcr.io/cloud-builders/docker",
+            "args": [
+                "build",
+                "-t",
+                "${_LOCATION}-docker.pkg.dev/${_PROJECT_ID}/${_ARTIFACT_REGISTRY_REPO}/${_IMAGE_ID}:${TAG_NAME}",
+                "."
+            ]
+        },
+        {
+            "name": "gcr.io/cloud-builders/docker",
+            "args": [
+                "push",
+                "${_LOCATION}-docker.pkg.dev/${_PROJECT_ID}/${_ARTIFACT_REGISTRY_REPO}/${_IMAGE_ID}:${TAG_NAME}"
+            ]
+        }
+    ],
+    "options": {
+        "automap_substitutions": true
+      },
+    "substitutions": {
+        "TAG_NAME": "tag2"
+      }
+}
