@@ -1,7 +1,7 @@
 {
     "steps": [
         {
-            "name": "python3",
+            "name": "python",
             "entrypoint": "pip",
             "args": [
                 "install",
