@@ -6,6 +6,10 @@ from typing import Union
 from yin_resume_api.models.desc import Desc  # noqa: E501
 from yin_resume_api import util
 
+import json
+
+from yin_resume_api.bussiness_logical.bl_resume import get_all_descs
+
 
 def get_desc(name_id):  # noqa: E501
     """Find person description by ID
@@ -17,4 +21,4 @@ def get_desc(name_id):  # noqa: E501
 
     :rtype: Union[Desc, Tuple[Desc, int], Tuple[Desc, int, Dict[str, str]]
     """
-    return 'do some magic!'
+    return get_all_descs()

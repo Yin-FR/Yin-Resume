@@ -56,14 +56,14 @@ components:
     Desc:
       description: A description of a person stored in our database
       example:
-        name_id: saoiwanrpsk12oi3n43n_iascjs
-        name: Yin TAN
-        profile: Yin-TAN.png
-        mail: tanyin625@outlook.com
+        name_id: jackpy
+        name: Jack
+        profile: Jack.png
+        mail: jack.thomas@gmail.com
         phone: 122345678
         phone-prefix: 33
         address: 1 rue Ansien Lbehs
-        desc: "Hello, I am Yin"
+        desc: "Hello, I am Jack"
       properties:
         name_id:
           type: string
