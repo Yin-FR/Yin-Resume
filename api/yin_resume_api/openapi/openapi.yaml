@@ -51,19 +51,81 @@ paths:
       tags:
       - resume
       x-openapi-router-controller: yin_resume_api.controllers.resume_controller
+  /resume/educations:
+    get:
+      description: Get all education info for a person by ID
+      operationId: get_educations
+      parameters:
+      - description: ID of the person
+        explode: false
+        in: query
+        name: name_id
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/education'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/education'
+          description: successful operation
+        "400":
+          description: Invalid ID supplied
+        "404":
+          description: Person not found
+      summary: Find person description by ID
+      tags:
+      - resume
+      x-openapi-router-controller: yin_resume_api.controllers.resume_controller
+  /resume/works:
+    get:
+      description: Get all work info for a person by ID
+      operationId: get_works
+      parameters:
+      - description: ID of the person
+        explode: false
+        in: query
+        name: name_id
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/work'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/work'
+          description: successful operation
+        "400":
+          description: Invalid ID supplied
+        "404":
+          description: Person not found
+      summary: Find person description by ID
+      tags:
+      - resume
+      x-openapi-router-controller: yin_resume_api.controllers.resume_controller
 components:
   schemas:
     Desc:
       description: A description of a person stored in our database
       example:
-        name_id: saoiwanrpsk12oi3n43n_iascjs
-        name: Yin TAN
-        profile: Yin-TAN.png
-        mail: tanyin625@outlook.com
+        name_id: jackpy
+        name: Jack
+        profile: Jack.png
+        mail: jack.thomas@gmail.com
         phone: 122345678
         phone-prefix: 33
         address: 1 rue Ansien Lbehs
-        desc: "Hello, I am Yin"
+        desc: "Hello, I am Jack"
       properties:
         name_id:
           type: string
@@ -87,3 +149,58 @@ components:
       type: object
       xml:
         name: desc
+    education:
+      description: A breif description of education experience
+      example:
+        school_name: MIT
+        school_link: MIT.com
+        school_pic: MIT-logo.png
+        diploma: Bachelor of Engineering
+        graduation_time: June 2009
+        desc: I have learnt Computer Science
+      properties:
+        school_name:
+          type: string
+        school_link:
+          type: string
+        school_pic:
+          type: string
+        diploma:
+          type: string
+        graduation_time:
+          type: string
+        desc:
+          type: string
+      title: Education Experience Description
+      type: object
+      xml:
+        name: education
+    work:
+      description: A breif description of professional experience
+      example:
+        company_name: Google
+        company_link: google.com
+        company_pic: google-logo.png
+        role: Software Engineer
+        start_time: July 2009
+        end_time: October 2015
+        desc: Create several cloud services
+      properties:
+        company_name:
+          type: string
+        company_link:
+          type: string
+        company_pic:
+          type: string
+        role:
+          type: string
+        start_time:
+          type: string
+        end_time:
+          type: string
+        desc:
+          type: string
+      title: Professional Experience Description
+      type: object
+      xml:
+        name: work
