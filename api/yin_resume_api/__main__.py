@@ -18,7 +18,7 @@ app.add_api('openapi.yaml',
             pythonic_params=True)
 application = app.app
 application.config["MONGODB_SETTINGS"] = {
-    'host':'mongodb+srv://:@yin-cluster.epqcei4.mongodb.net/yin_resume?retryWrites=true&w=majority'
+    'host':'mongodb+srv://{}:{}@yin-cluster.epqcei4.mongodb.net/yin_resume?retryWrites=true&w=majority'.format(MONGODB_USERNAME, MONGODB_PASSWORD)
 }
 db.init_app(application)
 
