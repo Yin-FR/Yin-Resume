@@ -12,9 +12,11 @@ class Work(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, company_name=None, company_link=None, company_pic=None, role=None, start_time=None, end_time=None, desc=None):  # noqa: E501
+    def __init__(self, name_id=None, company_name=None, company_link=None, company_pic=None, role=None, start_time=None, end_time=None, desc=None):  # noqa: E501
         """Work - a model defined in OpenAPI
 
+        :param name_id: The name_id of this Work.  # noqa: E501
+        :type name_id: str
         :param company_name: The company_name of this Work.  # noqa: E501
         :type company_name: str
         :param company_link: The company_link of this Work.  # noqa: E501
@@ -31,6 +33,7 @@ class Work(Model):
         :type desc: str
         """
         self.openapi_types = {
+            'name_id': str,
             'company_name': str,
             'company_link': str,
             'company_pic': str,
@@ -41,6 +44,7 @@ class Work(Model):
         }
 
         self.attribute_map = {
+            'name_id': 'name_id',
             'company_name': 'company_name',
             'company_link': 'company_link',
             'company_pic': 'company_pic',
@@ -50,6 +54,7 @@ class Work(Model):
             'desc': 'desc'
         }
 
+        self._name_id = name_id
         self._company_name = company_name
         self._company_link = company_link
         self._company_pic = company_pic
@@ -68,6 +73,27 @@ class Work(Model):
         :rtype: Work
         """
         return util.deserialize_model(dikt, cls)
+
+    @property
+    def name_id(self) -> str:
+        """Gets the name_id of this Work.
+
+
+        :return: The name_id of this Work.
+        :rtype: str
+        """
+        return self._name_id
+
+    @name_id.setter
+    def name_id(self, name_id: str):
+        """Sets the name_id of this Work.
+
+
+        :param name_id: The name_id of this Work.
+        :type name_id: str
+        """
+
+        self._name_id = name_id
 
     @property
     def company_name(self) -> str:

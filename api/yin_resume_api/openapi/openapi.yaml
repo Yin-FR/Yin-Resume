@@ -20,16 +20,16 @@ tags:
 - description: Operations about user
   name: user
 paths:
-  /resume/description:
+  /resume/descs:
     get:
       description: Get the text about self description
-      operationId: get_desc
+      operationId: get_descs
       parameters:
       - description: ID of the person
         explode: false
         in: query
         name: name_id
-        required: true
+        required: false
         schema:
           type: string
         style: form
@@ -60,7 +60,7 @@ paths:
         explode: false
         in: query
         name: name_id
-        required: true
+        required: false
         schema:
           type: string
         style: form
@@ -91,7 +91,7 @@ paths:
         explode: false
         in: query
         name: name_id
-        required: true
+        required: false
         schema:
           type: string
         style: form
@@ -152,6 +152,7 @@ components:
     education:
       description: A breif description of education experience
       example:
+        name_id: jackpy
         school_name: MIT
         school_link: MIT.com
         school_pic: MIT-logo.png
@@ -159,6 +160,8 @@ components:
         graduation_time: June 2009
         desc: I have learnt Computer Science
       properties:
+        name_id:
+          type: string
         school_name:
           type: string
         school_link:
@@ -178,6 +181,7 @@ components:
     work:
       description: A breif description of professional experience
       example:
+        name_id: jackpy
         company_name: Google
         company_link: google.com
         company_pic: google-logo.png
@@ -186,6 +190,8 @@ components:
         end_time: October 2015
         desc: Create several cloud services
       properties:
+        name_id:
+          type: string
         company_name:
           type: string
         company_link:
