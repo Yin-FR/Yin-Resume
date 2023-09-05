@@ -12,9 +12,11 @@ class Education(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, school_name=None, school_link=None, school_pic=None, diploma=None, graduation_time=None, desc=None):  # noqa: E501
+    def __init__(self, name_id=None, school_name=None, school_link=None, school_pic=None, diploma=None, graduation_time=None, desc=None):  # noqa: E501
         """Education - a model defined in OpenAPI
 
+        :param name_id: The name_id of this Education.  # noqa: E501
+        :type name_id: str
         :param school_name: The school_name of this Education.  # noqa: E501
         :type school_name: str
         :param school_link: The school_link of this Education.  # noqa: E501
@@ -29,6 +31,7 @@ class Education(Model):
         :type desc: str
         """
         self.openapi_types = {
+            'name_id': str,
             'school_name': str,
             'school_link': str,
             'school_pic': str,
@@ -38,6 +41,7 @@ class Education(Model):
         }
 
         self.attribute_map = {
+            'name_id': 'name_id',
             'school_name': 'school_name',
             'school_link': 'school_link',
             'school_pic': 'school_pic',
@@ -46,6 +50,7 @@ class Education(Model):
             'desc': 'desc'
         }
 
+        self._name_id = name_id
         self._school_name = school_name
         self._school_link = school_link
         self._school_pic = school_pic
@@ -63,6 +68,27 @@ class Education(Model):
         :rtype: Education
         """
         return util.deserialize_model(dikt, cls)
+
+    @property
+    def name_id(self) -> str:
+        """Gets the name_id of this Education.
+
+
+        :return: The name_id of this Education.
+        :rtype: str
+        """
+        return self._name_id
+
+    @name_id.setter
+    def name_id(self, name_id: str):
+        """Sets the name_id of this Education.
+
+
+        :param name_id: The name_id of this Education.
+        :type name_id: str
+        """
+
+        self._name_id = name_id
 
     @property
     def school_name(self) -> str:

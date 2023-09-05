@@ -31,13 +31,23 @@ spec:
       - name: yin-resume-api-image
         # Replace $LOCATION with your Artifact Registry location (e.g., us-west1).
         # Replace $GCLOUD_PROJECT with your project ID.
-        image: europe-west9-docker.pkg.dev/yin-resume/yin-resume/yin_resume_api-image:tag1
+        image: europe-west9-docker.pkg.dev/yin-resume/yin-resume/yin_resume_api-image:tag2
         # This app listens on port 8080 for web traffic by default.
         ports:
         - containerPort: 8080
         env:
           - name: PORT
             value: "8080"
+          - name: MONGODB_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: db-user-pass
+                key: username
+          - name: MONGODB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: db-user-pass
+                key: password
         resources:
           requests:
             memory: "1Gi"

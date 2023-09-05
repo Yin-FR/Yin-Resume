@@ -1,8 +1,19 @@
 from yin_resume_api.orm_mongodb.desc import Desc
+from yin_resume_api.orm_mongodb.work import Work
+from yin_resume_api.orm_mongodb.education import Education
 from flask import jsonify
 
 
-def get_all_descs():
-    descs = Desc.objects()
-    print(descs)
+def bl_get_all_descs(**kwargs):
+    descs = Desc.objects(**kwargs)
     return jsonify(descs), 200
+
+
+def bl_get_all_works(**kwargs):
+    works = Work.objects(**kwargs)
+    return jsonify(works), 200
+
+
+def bl_get_all_educations(**kwargs):
+    educations = Education.objects(**kwargs)
+    return jsonify(educations), 200
