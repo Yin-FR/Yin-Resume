@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import Fade from "react-reveal";
+import "../config"
 
 class Footer extends Component {
   render() {
     if (!this.props.data) return null;
 
-    const networks = this.props.data.social.map(function (network) {
+    const networks = this.props.data.map(function (network) {
       return (
         <li key={network.name}>
           <a href={network.url}>

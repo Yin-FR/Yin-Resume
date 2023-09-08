@@ -15,12 +15,12 @@ class App extends Component {
     super(props);
     this.state = {
       foo: "bar",
-      resumeData: {},
       descData: {},
       educationData: [],
       workData: [],
       skillData: [],
-      projectData: []
+      projectData: [],
+      networkData: []
     };
 
     ReactGA.initialize("UA-110570651-1");
@@ -29,18 +29,6 @@ class App extends Component {
 
   getResumeData() {
     const apiUrl = global.config.apiUrl.stringValue;
-    $.ajax({
-      url: "./resumeData.json",
-      dataType: "json",
-      cache: false,
-      success: function(data) {
-        this.setState({ resumeData: data });
-      }.bind(this),
-      error: function(xhr, status, err) {
-        console.log(err);
-        alert(err);
-      }
-    });
     $.ajax({
       url: apiUrl + "/resume/descs",
       dataType: "json",
@@ -96,6 +84,17 @@ class App extends Component {
         console.log(err);
       }
     });
+    $.ajax({
+      url: apiUrl + "/resume/social_networks",
+      dataType: "json",
+      cache: false,
+      success: function(data) {
+        this.setState({ networkData: data });
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.log(err);
+      }
+    });
   }
 
   componentDidMount() {
@@ -110,7 +109,7 @@ class App extends Component {
         <Resume data={{educationData: this.state.educationData, workData: this.state.workData, skillData: this.state.skillData}} />
         <Portfolio data={this.state.projectData} />
         <Contact data={this.state.descData[0]} />
-        <Footer data={this.state.resumeData.main} />
+        <Footer data={this.state.networkData} />
       </div>
     );
   }
