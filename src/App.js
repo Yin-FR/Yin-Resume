@@ -8,6 +8,7 @@ import About from "./Components/About";
 import Resume from "./Components/Resume";
 import Contact from "./Components/Contact";
 import Portfolio from "./Components/Portfolio";
+import "./config"
 
 class App extends Component {
   constructor(props) {
@@ -27,6 +28,7 @@ class App extends Component {
   }
 
   getResumeData() {
+    const apiUrl = global.config.apiUrl.stringValue;
     $.ajax({
       url: "./resumeData.json",
       dataType: "json",
@@ -40,7 +42,7 @@ class App extends Component {
       }
     });
     $.ajax({
-      url: "http://localhost:8080/v1/resume/descs",
+      url: apiUrl + "/resume/descs",
       dataType: "json",
       cache: false,
       success: function(data) {
@@ -51,7 +53,7 @@ class App extends Component {
       }
     });
     $.ajax({
-      url: "http://localhost:8080/v1/resume/educations",
+      url: apiUrl + "/resume/educations",
       dataType: "json",
       cache: false,
       success: function(data) {
@@ -62,7 +64,7 @@ class App extends Component {
       }
     });
     $.ajax({
-      url: "http://localhost:8080/v1/resume/works",
+      url: apiUrl + "/resume/works",
       dataType: "json",
       cache: false,
       success: function(data) {
@@ -73,7 +75,7 @@ class App extends Component {
       }
     });
     $.ajax({
-      url: "http://localhost:8080/v1/resume/skills",
+      url: apiUrl + "/resume/skills",
       dataType: "json",
       cache: false,
       success: function(data) {
@@ -84,7 +86,7 @@ class App extends Component {
       }
     });
     $.ajax({
-      url: "http://localhost:8080/v1/project/projects",
+      url: apiUrl + "/project/projects",
       dataType: "json",
       cache: false,
       success: function(data) {
@@ -107,7 +109,7 @@ class App extends Component {
         <About data={this.state.descData[0]} />
         <Resume data={{educationData: this.state.educationData, workData: this.state.workData, skillData: this.state.skillData}} />
         <Portfolio data={this.state.projectData} />
-        <Contact data={this.state.resumeData.main} />
+        <Contact data={this.state.descData[0]} />
         <Footer data={this.state.resumeData.main} />
       </div>
     );

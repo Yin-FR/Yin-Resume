@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Slide from "react-reveal";
+import "../config"
 
 class Resume extends Component {
   getRandomColor() {
@@ -14,11 +15,13 @@ class Resume extends Component {
   render() {
     if (!this.props.data) return null;
 
+    const apiUrl = global.config.apiUrl.stringValue
+
     const education = this.props.data.educationData.map(function (education) {
       return (
         <div key={education.school_name}>
           <div className="two columns">
-            <a href={education.school_link}><img src={"http://localhost:8080/v1/image?name=" + education.school_pic} alt={education.school_name} style={{height: "90%"}}></img></a>
+            <a href={education.school_link}><img src={apiUrl + "/image?name=" + education.school_pic} alt={education.school_name} style={{height: "90%"}}></img></a>
           </div>
           <h3>{education.school_name}</h3>
           <p className="info">
@@ -34,7 +37,7 @@ class Resume extends Component {
       return (
         <div key={work.company_name}>
           <div className="two columns">
-            <a href={work.company_link}><img src={"http://localhost:8080/v1/image?name=" + work.company_pic} alt={education.school_name} style={{height: "90%"}}></img></a>
+            <a href={work.company_link}><img src={apiUrl + "/image?name=" + work.company_pic} alt={education.school_name} style={{height: "90%"}}></img></a>
           </div>
           <h3>{work.company_name}</h3>
           <p className="info">

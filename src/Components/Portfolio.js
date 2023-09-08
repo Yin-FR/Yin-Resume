@@ -1,14 +1,17 @@
 import React, { Component } from "react";
 import Zmage from "react-zmage";
 import Fade from "react-reveal";
+import "../config"
 
 let id = 0;
 class Portfolio extends Component {
   render() {
     if (!this.props.data) return null;
 
+    const apiUrl = global.config.apiUrl.stringValue
+
     const projects = this.props.data.map(function (projects) {
-      let projectImage = "http://localhost:8080/v1/image?name=" + projects.pic;
+      let projectImage = apiUrl + "/image?name=" + projects.pic;
 
       return (
         <div key={id++} className="columns portfolio-item">

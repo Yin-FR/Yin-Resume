@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import Fade from "react-reveal";
+import "../config"
 
 class About extends Component {
   render() {
     if (!this.props.data) return null;
-
+    const apiUrl = global.config.apiUrl.stringValue
     const name = this.props.data.name;
-    const profilepic = "http://localhost:8080/v1/image?name=" + this.props.data.profile;
+    const profilepic = apiUrl + "/image?name=" + this.props.data.profile;
     const bio = this.props.data.desc;
     const address = this.props.data.address;
     const phone = "+" + this.props.data.phone_prefix + " " + this.props.data.phone;
