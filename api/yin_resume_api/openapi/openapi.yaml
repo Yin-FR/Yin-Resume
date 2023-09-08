@@ -16,7 +16,7 @@ tags:
 - description: Everything about your reume
   name: resume
 - description: About projects
-  name: work
+  name: project
 - description: Operations about user
   name: user
 - description: Operations about images
@@ -51,6 +51,37 @@ paths:
       tags:
       - image
       x-openapi-router-controller: yin_resume_api.controllers.image_controller
+  /project/projects:
+    get:
+      description: Get the projects information
+      operationId: get_projects
+      parameters:
+      - description: ID of the person
+        explode: false
+        in: query
+        name: name_id
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/project'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/project'
+          description: successful operation
+        "400":
+          description: Invalid ID supplied
+        "404":
+          description: Person not found
+      summary: Get the projects information by ID
+      tags:
+      - project
+      x-openapi-router-controller: yin_resume_api.controllers.project_controller
   /resume/descs:
     get:
       description: Get the text about self description
@@ -258,6 +289,26 @@ components:
       type: object
       xml:
         name: skill
+    project:
+      description: A breif description of project
+      example:
+        name_id: jackpy
+        name: XXX Service
+        link: https://xxxservice.com
+        github: https://github.com/jackpy/xxxservice
+      properties:
+        name_id:
+          type: string
+        name:
+          type: string
+        link:
+          type: string
+        github:
+          type: string
+      title: Project Description
+      type: object
+      xml:
+        name: project
     work:
       description: A breif description of professional experience
       example:

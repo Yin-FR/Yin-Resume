@@ -12,6 +12,7 @@ yin_resume_api/__init__.py
 yin_resume_api/__main__.py
 yin_resume_api/controllers/__init__.py
 yin_resume_api/controllers/image_controller.py
+yin_resume_api/controllers/project_controller.py
 yin_resume_api/controllers/resume_controller.py
 yin_resume_api/controllers/security_controller.py
 yin_resume_api/encoder.py
@@ -19,10 +20,11 @@ yin_resume_api/models/__init__.py
 yin_resume_api/models/base_model.py
 yin_resume_api/models/desc.py
 yin_resume_api/models/education.py
+yin_resume_api/models/project.py
 yin_resume_api/models/skill.py
 yin_resume_api/models/work.py
 yin_resume_api/openapi/openapi.yaml
 yin_resume_api/test/__init__.py
-yin_resume_api/test/test_image_controller.py
+yin_resume_api/test/test_project_controller.py
 yin_resume_api/typing_utils.py
 yin_resume_api/util.py
