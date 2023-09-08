@@ -7,14 +7,14 @@ class Portfolio extends Component {
   render() {
     if (!this.props.data) return null;
 
-    const projects = this.props.data.projects.map(function (projects) {
-      let projectImage = "images/portfolio/" + projects.image;
+    const projects = this.props.data.map(function (projects) {
+      let projectImage = "http://localhost:8080/v1/image?name=" + projects.pic;
 
       return (
         <div key={id++} className="columns portfolio-item">
           <div className="item-wrap">
-            <Zmage alt={projects.title} src={projectImage} />
-            <div style={{ textAlign: "center" }}>{projects.title}</div>
+            <Zmage alt={projects.name} src={projectImage} style={{ height: "7em"}}/>
+            <div style={{ textAlign: "center" }}><a href={projects.github}>{projects.name}</a></div>
           </div>
         </div>
       );

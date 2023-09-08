@@ -14,42 +14,50 @@ class Resume extends Component {
   render() {
     if (!this.props.data) return null;
 
-    const skillmessage = this.props.data.skillmessage;
-    const education = this.props.data.education.map(function (education) {
+    const education = this.props.data.educationData.map(function (education) {
       return (
-        <div key={education.school}>
-          <h3>{education.school}</h3>
+        <div key={education.school_name}>
+          <div className="two columns">
+            <a href={education.school_link}><img src={"http://localhost:8080/v1/image?name=" + education.school_pic} alt={education.school_name} style={{height: "90%"}}></img></a>
+          </div>
+          <h3>{education.school_name}</h3>
           <p className="info">
-            {education.degree} <span>&bull;</span>
-            <em className="date">{education.graduated}</em>
+            {education.diploma} <span>&bull;</span>
+            <em className="date">{education.graduation_time}</em>
           </p>
-          <p>{education.description}</p>
+          <p>{education.desc}</p>
         </div>
       );
     });
 
-    const work = this.props.data.work.map(function (work) {
+    const work = this.props.data.workData.map(function (work) {
       return (
-        <div key={work.company}>
-          <h3>{work.company}</h3>
+        <div key={work.company_name}>
+          <div className="two columns">
+            <a href={work.company_link}><img src={"http://localhost:8080/v1/image?name=" + work.company_pic} alt={education.school_name} style={{height: "90%"}}></img></a>
+          </div>
+          <h3>{work.company_name}</h3>
           <p className="info">
-            {work.title}
-            <span>&bull;</span> <em className="date">{work.years}</em>
+            {work.role}
+            <span>&bull;</span> <em className="date">{work.start_time} - {work.end_time}</em>
           </p>
-          <p>{work.description}</p>
+          <p>{work.desc}</p>
         </div>
       );
     });
 
-    const skills = this.props.data.skills.map((skills) => {
+    const skillSorted = this.props.data.skillData.sort(function(a, b) {
+      return ((a.skill_value < b.skill_value) ? 1 : ((a.skill_value > b.skill_value) ? -1 : 0))
+    })
+    const skills = skillSorted.map((skill) => {
       const backgroundColor = this.getRandomColor();
-      const className = "bar-expand " + skills.name.toLowerCase();
-      const width = skills.level;
+      const className = "bar-expand " + skill.skill_name.toLowerCase();
+      const width = skill.skill_value.toString() + "%";
 
       return (
-        <li key={skills.name}>
+        <li key={skill.skill_name}>
           <span style={{ width, backgroundColor }} className={className}></span>
-          <em>{skills.name}</em>
+          <em>{skill.skill_name}</em>
         </li>
       );
     });
@@ -93,8 +101,6 @@ class Resume extends Component {
             </div>
 
             <div className="nine columns main-col">
-              <p>{skillmessage}</p>
-
               <div className="bars">
                 <ul className="skills">{skills}</ul>
               </div>

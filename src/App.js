@@ -14,7 +14,12 @@ class App extends Component {
     super(props);
     this.state = {
       foo: "bar",
-      resumeData: {}
+      resumeData: {},
+      descData: {},
+      educationData: [],
+      workData: [],
+      skillData: [],
+      projectData: []
     };
 
     ReactGA.initialize("UA-110570651-1");
@@ -34,6 +39,61 @@ class App extends Component {
         alert(err);
       }
     });
+    $.ajax({
+      url: "http://localhost:8080/v1/resume/descs",
+      dataType: "json",
+      cache: false,
+      success: function(data) {
+        this.setState({ descData: data });
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.log(err);
+      }
+    });
+    $.ajax({
+      url: "http://localhost:8080/v1/resume/educations",
+      dataType: "json",
+      cache: false,
+      success: function(data) {
+        this.setState({ educationData: data });
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.log(err);
+      }
+    });
+    $.ajax({
+      url: "http://localhost:8080/v1/resume/works",
+      dataType: "json",
+      cache: false,
+      success: function(data) {
+        this.setState({ workData: data });
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.log(err);
+      }
+    });
+    $.ajax({
+      url: "http://localhost:8080/v1/resume/skills",
+      dataType: "json",
+      cache: false,
+      success: function(data) {
+        this.setState({ skillData: data });
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.log(err);
+      }
+    });
+    $.ajax({
+      url: "http://localhost:8080/v1/project/projects",
+      dataType: "json",
+      cache: false,
+      success: function(data) {
+        this.setState({ projectData: data });
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.log(err);
+      }
+    });
   }
 
   componentDidMount() {
@@ -43,10 +103,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header data={this.state.resumeData.main} />
-        <About data={this.state.resumeData.main} />
-        <Resume data={this.state.resumeData.resume} />
-        <Portfolio data={this.state.resumeData.portfolio} />
+        <Header data={this.state.descData[0]} />
+        <About data={this.state.descData[0]} />
+        <Resume data={{educationData: this.state.educationData, workData: this.state.workData, skillData: this.state.skillData}} />
+        <Portfolio data={this.state.projectData} />
         <Contact data={this.state.resumeData.main} />
         <Footer data={this.state.resumeData.main} />
       </div>

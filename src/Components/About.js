@@ -6,14 +6,11 @@ class About extends Component {
     if (!this.props.data) return null;
 
     const name = this.props.data.name;
-    const profilepic = "images/" + this.props.data.image;
-    const bio = this.props.data.bio;
-    const street = this.props.data.address.street;
-    const city = this.props.data.address.city;
-    const state = this.props.data.address.state;
-    const zip = this.props.data.address.zip;
-    const phone = this.props.data.phone;
-    const email = this.props.data.email;
+    const profilepic = "http://localhost:8080/v1/image?name=" + this.props.data.profile;
+    const bio = this.props.data.desc;
+    const address = this.props.data.address;
+    const phone = "+" + this.props.data.phone_prefix + " " + this.props.data.phone;
+    const email = this.props.data.mail;
     const resumeDownload = this.props.data.resumedownload;
 
     return (
@@ -24,7 +21,7 @@ class About extends Component {
               <img
                 className="profile-pic"
                 src={profilepic}
-                alt="Nordic Giant Profile Pic"
+                alt="Profile Pic"
               />
             </div>
             <div className="nine columns main-col">
@@ -38,9 +35,7 @@ class About extends Component {
                     <span>{name}</span>
                     <br />
                     <span>
-                      {street}
-                      <br />
-                      {city} {state}, {zip}
+                      {address}
                     </span>
                     <br />
                     <span>{phone}</span>
