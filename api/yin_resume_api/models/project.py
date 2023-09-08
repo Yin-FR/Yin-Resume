@@ -12,7 +12,7 @@ class Project(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, name_id=None, name=None, link=None, github=None):  # noqa: E501
+    def __init__(self, name_id=None, name=None, link=None, github=None, desc=None, pic=None):  # noqa: E501
         """Project - a model defined in OpenAPI
 
         :param name_id: The name_id of this Project.  # noqa: E501
@@ -23,25 +23,35 @@ class Project(Model):
         :type link: str
         :param github: The github of this Project.  # noqa: E501
         :type github: str
+        :param desc: The desc of this Project.  # noqa: E501
+        :type desc: str
+        :param pic: The pic of this Project.  # noqa: E501
+        :type pic: str
         """
         self.openapi_types = {
             'name_id': str,
             'name': str,
             'link': str,
-            'github': str
+            'github': str,
+            'desc': str,
+            'pic': str
         }
 
         self.attribute_map = {
             'name_id': 'name_id',
             'name': 'name',
             'link': 'link',
-            'github': 'github'
+            'github': 'github',
+            'desc': 'desc',
+            'pic': 'pic'
         }
 
         self._name_id = name_id
         self._name = name
         self._link = link
         self._github = github
+        self._desc = desc
+        self._pic = pic
 
     @classmethod
     def from_dict(cls, dikt) -> 'Project':
@@ -137,3 +147,45 @@ class Project(Model):
         """
 
         self._github = github
+
+    @property
+    def desc(self) -> str:
+        """Gets the desc of this Project.
+
+
+        :return: The desc of this Project.
+        :rtype: str
+        """
+        return self._desc
+
+    @desc.setter
+    def desc(self, desc: str):
+        """Sets the desc of this Project.
+
+
+        :param desc: The desc of this Project.
+        :type desc: str
+        """
+
+        self._desc = desc
+
+    @property
+    def pic(self) -> str:
+        """Gets the pic of this Project.
+
+
+        :return: The pic of this Project.
+        :rtype: str
+        """
+        return self._pic
+
+    @pic.setter
+    def pic(self, pic: str):
+        """Sets the pic of this Project.
+
+
+        :param pic: The pic of this Project.
+        :type pic: str
+        """
+
+        self._pic = pic

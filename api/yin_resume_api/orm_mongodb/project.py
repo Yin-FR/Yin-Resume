@@ -6,4 +6,6 @@ class Project(db.Document):
     name = db.StringField()
     link = db.StringField()
     github = db.StringField()
+    desc = db.StringField()
+    pic = db.StringField()
     meta = {'collection': 'project'}

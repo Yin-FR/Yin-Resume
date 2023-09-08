@@ -296,6 +296,8 @@ components:
         name: XXX Service
         link: https://xxxservice.com
         github: https://github.com/jackpy/xxxservice
+        desc: A xxx service which is implemented by ABC.
+        pic: xxxservice.png
       properties:
         name_id:
           type: string
@@ -304,6 +306,10 @@ components:
         link:
           type: string
         github:
+          type: string
+        desc:
+          type: string
+        pic:
           type: string
       title: Project Description
       type: object
