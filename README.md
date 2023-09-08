@@ -1,18 +1,11 @@
 # Yin Awesome Resume:
 
-### [LIVE DEMO](https://yin-fr.github.io)
+This project is generated from [react-nice-resume](https://github.com/nordicgiant2/react-nice-resume), thanks to the author [Nordic Giant](https://github.com/nordicgiant2).
+This website is a React-based project, use [yin-resume-api](https://github.com/Yin-FR/Yin-Resume-API) as backend service.
 
-![img](https://github.com/nordicgiant2/react-nice-resume/blob/master/public/images/img.jpg?raw=true)
+![img](https://github.com/Yin-FR/Yin-Resume/blob/master/public/images/yin-resume-web.png?raw=true)
 
-# About [`particles-bg`](https://github.com/lindelof/particles-bg) Library
-#### This project uses the react particle background component library [https://github.com/lindelof/particles-bg](https://github.com/lindelof/particles-bg). It's very simple. Anyone can be a Musketeer with it.
-
-![img](https://github.com/lindelof/particles-bg/raw/master/image/03.jpg?raw=true)
-
-# Description
-This project forks from [https://github.com/tbakerx/react-resume-template](https://github.com/tbakerx/react-resume-template), I made some modifications and adjustments, thanks to the [author](https://github.com/tbakerx).
-
-![img](https://github.com/nordicgiant2/react-nice-resume/blob/master/public/images/img2.jpg?raw=true)
+[**LIVE DEMO**](https://yin-fr.github.io)
 
 # Run Project
 ### 1. Clone the project
