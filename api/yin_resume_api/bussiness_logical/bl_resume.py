@@ -2,6 +2,7 @@ from yin_resume_api.orm_mongodb.desc import Desc
 from yin_resume_api.orm_mongodb.work import Work
 from yin_resume_api.orm_mongodb.education import Education
 from yin_resume_api.orm_mongodb.skill import Skill
+from yin_resume_api.orm_mongodb.social_network import Social_Network
 from flask import jsonify
 
 
@@ -23,3 +24,8 @@ def bl_get_all_educations(**kwargs):
 def bl_get_all_skills(**kwargs):
     skills = Skill.objects(**kwargs)
     return jsonify(skills), 200
+
+
+def bl_get_all_social_networks(**kwargs):
+    social_networks = Social_Network.objects(**kwargs)
+    return jsonify(social_networks), 200

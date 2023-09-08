@@ -175,6 +175,37 @@ paths:
       tags:
       - resume
       x-openapi-router-controller: yin_resume_api.controllers.resume_controller
+  /resume/social_networks:
+    get:
+      description: Get all social network info for a person by ID
+      operationId: get_social_networks
+      parameters:
+      - description: ID of the person
+        explode: false
+        in: query
+        name: name_id
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/social_network'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/social_network'
+          description: successful operation
+        "400":
+          description: Invalid ID supplied
+        "404":
+          description: Person not found
+      summary: Find social network description by ID
+      tags:
+      - resume
+      x-openapi-router-controller: yin_resume_api.controllers.resume_controller
   /resume/works:
     get:
       description: Get all work info for a person by ID
@@ -347,3 +378,23 @@ components:
       type: object
       xml:
         name: work
+    social_network:
+      description: A breif description of social network
+      example:
+        name_id: jackpy
+        name: linkedin
+        className: fa fa-linkedin
+        url: https://www.linkedin.com
+      properties:
+        name_id:
+          type: string
+        name:
+          type: string
+        className:
+          type: string
+        url:
+          type: string
+      title: Social Network Type and URL
+      type: object
+      xml:
+        name: social_network
