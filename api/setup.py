@@ -20,10 +20,10 @@ REQUIRES = [
 setup(
     name=NAME,
     version=VERSION,
-    description="OpenAPI Petstore",
+    description="Yin Resume API",
     author_email="",
     url="",
-    keywords=["OpenAPI", "OpenAPI Petstore"],
+    keywords=["OpenAPI", "Yin Resume API"],
     install_requires=REQUIRES,
     packages=find_packages(),
     package_data={'': ['openapi/openapi.yaml']},

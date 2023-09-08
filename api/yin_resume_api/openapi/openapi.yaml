@@ -5,7 +5,7 @@ info:
   license:
     name: Apache-2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
-  title: OpenAPI Petstore
+  title: Yin Resume API
   version: 1.0.0
 externalDocs:
   description: Find out more about Swagger
@@ -19,7 +19,38 @@ tags:
   name: work
 - description: Operations about user
   name: user
+- description: Operations about images
+  name: image
 paths:
+  /image:
+    get:
+      description: Get an image by name
+      operationId: get_image_by_name
+      parameters:
+      - description: name of the image
+        explode: false
+        in: query
+        name: name
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            image/png:
+              schema:
+                format: binary
+                type: string
+          description: successful operation
+        "400":
+          description: Invalid name supplied
+        "404":
+          description: Image not found by name
+      summary: Find image by name
+      tags:
+      - image
+      x-openapi-router-controller: yin_resume_api.controllers.image_controller
   /resume/descs:
     get:
       description: Get the text about self description
@@ -73,6 +104,37 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/education'
+          description: successful operation
+        "400":
+          description: Invalid ID supplied
+        "404":
+          description: Person not found
+      summary: Find person description by ID
+      tags:
+      - resume
+      x-openapi-router-controller: yin_resume_api.controllers.resume_controller
+  /resume/skills:
+    get:
+      description: Get all skills info for a person by ID
+      operationId: get_skills
+      parameters:
+      - description: ID of the person
+        explode: false
+        in: query
+        name: name_id
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/skill'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/skill'
           description: successful operation
         "400":
           description: Invalid ID supplied
@@ -178,6 +240,24 @@ components:
       type: object
       xml:
         name: education
+    skill:
+      description: A breif description of skill
+      example:
+        name_id: jackpy
+        skill_name: C
+        skill_value: 95
+      properties:
+        name_id:
+          type: string
+        skill_name:
+          type: string
+        skill_value:
+          format: int64
+          type: integer
+      title: Skill Description
+      type: object
+      xml:
+        name: skill
     work:
       description: A breif description of professional experience
       example:
