@@ -19,6 +19,7 @@ yin_resume_api/models/__init__.py
 yin_resume_api/models/base_model.py
 yin_resume_api/models/desc.py
 yin_resume_api/models/education.py
+yin_resume_api/models/skill.py
 yin_resume_api/models/work.py
 yin_resume_api/openapi/openapi.yaml
 yin_resume_api/test/__init__.py
