@@ -1,6 +1,6 @@
-# React Nice Resume :page_with_curl:
+# Yin Awesome Resume:
 
-### [LIVE DEMO](https://nordicgiant2.github.io/react-nice-resume-page/index.html)
+### [LIVE DEMO](https://yin-fr.github.io)
 
 ![img](https://github.com/nordicgiant2/react-nice-resume/blob/master/public/images/img.jpg?raw=true)
 
