@@ -3,6 +3,7 @@ import connexion
 from yin_resume_api import encoder
 from flask_mongoengine import MongoEngine
 import os
+from flask_cors import CORS
 
 from yin_resume_api.orm_mongodb import db
 
@@ -12,6 +13,7 @@ MONGODB_PASSWORD = os.getenv("MONGODB_PASSWORD")
 
 
 app = connexion.App(__name__, specification_dir='./openapi/')
+CORS(app.app)
 app.app.json_encoder = encoder.JSONEncoder
 app.add_api('openapi.yaml',
             arguments={'title': 'OpenAPI Petstore'},
