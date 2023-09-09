@@ -16,6 +16,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  namespace: yin-ns
   name: yin-resume-deployment
 spec:
   replicas: 1
@@ -27,12 +28,17 @@ spec:
       labels:
         app: yin-resume-api
     spec:
+      serviceAccountName: yin-ksa
       containers:
       - name: yin-resume-api-image
         # Replace $LOCATION with your Artifact Registry location (e.g., us-west1).
         # Replace $GCLOUD_PROJECT with your project ID.
         image: europe-west9-docker.pkg.dev/yin-resume/yin-resume/yin_resume_api-image:tag5
         # This app listens on port 8080 for web traffic by default.
+        readinessProbe:
+          httpGet:
+            path: /v1/openapi.json
+            port: 8080
         ports:
         - containerPort: 8080
         env:
