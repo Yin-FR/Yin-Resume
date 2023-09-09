@@ -32,7 +32,7 @@
               "run",
               "--filename=kubernetes/deployment.yaml",
               "--location=europe-west9",
-              "--cluster=hellowold-gke"
+              "--cluster=helloworld-gke"
             ]
           }
     ],
