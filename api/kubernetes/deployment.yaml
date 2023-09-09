@@ -16,6 +16,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  namespace: yin-ns
   name: yin-resume-deployment
 spec:
   replicas: 1
@@ -27,6 +28,7 @@ spec:
       labels:
         app: yin-resume-api
     spec:
+      serviceAccountName: yin-ksa
       containers:
       - name: yin-resume-api-image
         # Replace $LOCATION with your Artifact Registry location (e.g., us-west1).
