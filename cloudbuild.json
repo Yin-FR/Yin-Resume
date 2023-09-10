@@ -1,6 +1,11 @@
 {
     "steps": [
         {
+            "name": "gcr.io/yin-resume/envsubst",
+            "env": ["TAG=${TAG_NAME}"],
+            "args": ["kubernetes/deployment.yaml"]
+        },
+        {
             "name": "gcr.io/cloud-builders/docker",
             "args": [
                 "build",
