@@ -32,7 +32,7 @@ spec:
       - name: yin-web-app-image
         image: europe-west9-docker.pkg.dev/yin-resume/yin-resume/yin-resume-web-image:tag1
         ports:
-        - containerPort: 3000
+        - containerPort: 80
         env:
           - name: PORT
             value: "3000"
