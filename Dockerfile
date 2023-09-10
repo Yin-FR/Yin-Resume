@@ -10,7 +10,6 @@ WORKDIR /app
 # Copying this separately prevents re-running npm install on every code change.
 COPY package*.json ./
 
-RUN npm install -g npm@10.1.0
 # Install production dependencies.
 RUN npm install --omit=dev
 
