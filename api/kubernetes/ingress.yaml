@@ -24,18 +24,11 @@ spec:
   rules:
   - http:
       paths:
-      - path: /api/*
-        pathType: ImplementationSpecific
-        backend:
-          service:
-            name: yin-resume-api-service
-            port:
-              number: 80
       - path: /*
         pathType: ImplementationSpecific
         backend:
           service:
-            name: yin-resume-web-service
+            name: yin-resume-api-service
             port:
               number: 80
 ---
