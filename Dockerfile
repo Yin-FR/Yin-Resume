@@ -11,7 +11,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install production dependencies.
-RUN npm install --omit=dev
+RUN npm install --omit=dev --legacy-peer-deps
 
 # Copy local code to the container image.
 COPY . ./
