@@ -1,7 +1,7 @@
 FROM node:13.12.0-alpine as builder
 COPY . .
 RUN npm install
-RUN npm build
+RUN npm run build
 
 FROM nginx:alpine
 COPY --from=builder /build /usr/share/nginx/html
