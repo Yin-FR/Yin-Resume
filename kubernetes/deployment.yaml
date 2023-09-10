@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
       - name: yin-web-app-image
-        image: europe-west9-docker.pkg.dev/yin-resume/yin-resume/yin-resume-web-image:tag4
+        image: europe-west9-docker.pkg.dev/yin-resume/yin-resume/yin-resume-web-image:latest
         ports:
         - containerPort: 80
         env:
