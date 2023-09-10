@@ -1,6 +1,6 @@
 FROM nginx:alpine
 COPY /build /usr/share/nginx/html
-COPY /nginx/sites-available /etc/nginx/sites-available
-COPY /nginx/sites-enabled /etc/nginx/sites-enabled
+COPY /nginx/yin-web /etc/nginx/sites-available/yin-web
+COPY /nginx/yin-web /etc/nginx/sites-enabled/yin-web
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]

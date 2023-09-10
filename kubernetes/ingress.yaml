@@ -16,22 +16,13 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: yin-resume-ingress
+  name: yin-resume-web-ingress
   namespace: yin-ns
-  annotations:
-    kubernetes.io/ingress.global-static-ip-name: "web-static-ip"
 spec:
   rules:
   - http:
       paths:
       - path: /*
-        pathType: ImplementationSpecific
-        backend:
-          service:
-            name: yin-resume-api-service
-            port:
-              number: 80
-      - path: /web
         pathType: ImplementationSpecific
         backend:
           service:
