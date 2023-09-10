@@ -1,14 +1,9 @@
 {
     "steps": [
         {
-            "name": "python",
-            "entrypoint": "pip",
-            "args": [
-                "install",
-                "-r",
-                "requirements.txt",
-                "--user"
-            ]
+            "name": "gcr.io/yin-resume/envsubst",
+            "env": ["TAG=${TAG_NAME}"],
+            "args": ["kubernetes/deployment.yaml"]
         },
         {
             "name": "gcr.io/cloud-builders/docker",
@@ -31,7 +26,6 @@
             "args": [
               "run",
               "--filename=kubernetes/deployment.yaml",
-              "--image=europe-west9-docker.pkg.dev/yin-resume/yin-resume/yin_resume_api-image:${TAG_NAME}",
               "--location=europe-west9",
               "--cluster=helloworld-gke"
             ]
