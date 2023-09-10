@@ -1,5 +1,5 @@
 module.exports = global.config = {
     apiUrl: {
-        stringValue: "http://localhost:8080/v1"
+        stringValue: "http://35.241.27.110/v1"
     }
 };

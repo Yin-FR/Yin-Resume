@@ -1,6 +1,7 @@
 {
-  "name": "reactniceresume",
-  "version": "0.1.0",
+  "name": "yin-resume",
+  "version": "1.0.0",
+  "description": "Yin resume website",
   "private": true,
   "homepage": "./",
   "dependencies": {
