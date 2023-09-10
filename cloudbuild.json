@@ -30,6 +30,6 @@
         "automap_substitutions": true
       },
     "substitutions": {
-        "TAG_NAME": "tag1"
+        "TAG_NAME": "tag2"
       }
 }
