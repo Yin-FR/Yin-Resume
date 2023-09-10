@@ -1,14 +1,9 @@
 {
     "steps": [
         {
-            "name": "python",
-            "entrypoint": "pip",
-            "args": [
-                "install",
-                "-r",
-                "requirements.txt",
-                "--user"
-            ]
+            "name": "gcr.io/yin-resume/envsubst",
+            "env": ["TAG=${TAG_NAME}"],
+            "args": ["kubernetes/deployment.yaml"]
         },
         {
             "name": "gcr.io/cloud-builders/docker",
@@ -38,8 +33,5 @@
     ],
     "options": {
         "automap_substitutions": true
-      },
-    "substitutions": {
-        "TAG_NAME": "tag5"
       }
 }

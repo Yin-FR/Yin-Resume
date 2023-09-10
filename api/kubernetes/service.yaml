@@ -21,6 +21,8 @@ kind: Service
 metadata:
   name: yin-resume-api-service
   namespace: yin-ns
+  annotations:
+    networking.gke.io/v1/network-policy: "yin-resume-np"
 spec:
   type: NodePort
   selector:
