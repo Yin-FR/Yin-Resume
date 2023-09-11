@@ -18,12 +18,16 @@ kind: Ingress
 metadata:
   name: yin-resume-web-ingress
   namespace: yin-ns
+  annotations:
+    ingress.gcp.kubernetes.io/pre-shared-cert: "yincodeworld-cert"
+    kubernetes.io/ingress.global-static-ip-name: "yin-resume-ip"
+    kubernetes.io/ingress.allow-http: "false"
 spec:
   rules:
-  - http:
+  - host: yincodeworld.com
+    http:
       paths:
-      - path: /*
-        pathType: ImplementationSpecific
+      - pathType: ImplementationSpecific
         backend:
           service:
             name: yin-resume-web-service

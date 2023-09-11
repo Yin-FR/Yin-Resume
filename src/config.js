@@ -1,5 +1,5 @@
 module.exports = global.config = {
     apiUrl: {
-        stringValue: "http://35.241.27.110/v1"
+        stringValue: "https://api.yincodeworld.com/v1"
     }
 };
