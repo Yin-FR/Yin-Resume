@@ -24,7 +24,13 @@ class Contact extends Component {
       mail: "admin",
       title: name + " contact you!"
     }
-    const requestBody = JSON.stringify({receiver: receiverBody})
+    const requestBody = JSON.stringify({receiver: receiverBody});
+    const senderBody = {
+      body: "Thanks for your message, we will return to you as soon as possible !",
+      mail: email,
+      title: "Thanks for your message !"
+    }
+    const senderRequestBody = JSON.stringify({receiver: senderBody});
     console.log(apiUrl);
     $.ajax({
       type: 'POST',
@@ -34,13 +40,23 @@ class Contact extends Component {
       dataType: "json",
       cache: false,
       success: (data) => {
-        console.log(data);
         this.setState({ success: true });
-        console.log(this.state);
-        console.log(this.state.success);
       },
       error: (xhr, status, err) => {
-        console.log(err);
+        this.setState({ success: false })
+      }
+    });
+    $.ajax({
+      type: 'POST',
+      url: apiUrl + "/mail/send",
+      contentType: "application/json",
+      data: senderRequestBody,
+      dataType: "json",
+      cache: false,
+      success: (data) => {
+        this.setState({ success: true });
+      },
+      error: (xhr, status, err) => {
         this.setState({ success: false })
       }
     });
