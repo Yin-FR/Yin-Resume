@@ -51,6 +51,16 @@ spec:
               secretKeyRef:
                 name: db-user-pass
                 key: password
+          - name: MAIL_PWD
+            valueFrom:
+              secretKeyRef:
+                name: db-user-pass
+                key: mail_pwd
+          - name: ADMIN_MAIL
+            valueFrom:
+              secretKeyRef:
+                name: db-user-pass
+                key: mail_admin
         resources:
           requests:
             memory: "1Gi"
