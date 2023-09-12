@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
       - name: yin-web-app-image
-        image: europe-west9-docker.pkg.dev/yin-resume/yin-resume/yin-resume-web-image:$TAG
+        image: europe-west9-docker.pkg.dev/yin-resume/yin-resume/yin-resume-web-image:${TAG}
         imagePullPolicy: "Always"
         ports:
         - containerPort: 80
