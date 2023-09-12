@@ -1,7 +1,53 @@
 import React, { Component } from "react";
 import { Fade, Slide } from "react-reveal";
+import $ from "jquery";
+import "../config"
 
 class Contact extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      success: false,
+      haha: true
+    };
+
+  }
+  sendMail = () => {
+    
+    const name = $("#contactName").val();
+    const email = $("#contactEmail").val();
+    const subject = $("#contactSubject").val();
+    const message = $("#contactMessage").val();
+    const apiUrl = global.config.apiUrl.stringValue;
+    const receiverBody = {
+      body: "Someone contacted you.\nName: " + name + "\nMail: " + email + "\nSubject: " + subject + "\nBody: " + message,
+      mail: "admin",
+      title: name + " contact you!"
+    }
+    const requestBody = JSON.stringify({receiver: receiverBody})
+    console.log(apiUrl);
+    $.ajax({
+      type: 'POST',
+      url: apiUrl + "/mail/send",
+      contentType: "application/json",
+      data: requestBody,
+      dataType: "json",
+      cache: false,
+      success: (data) => {
+        console.log(data);
+        this.setState({ success: true });
+        console.log(this.state);
+        console.log(this.state.success);
+      },
+      error: (xhr, status, err) => {
+        console.log(err);
+        this.setState({ success: false })
+      }
+    });
+  }
+
+  
+
   render() {
     if (!this.props.data) return null;
 
@@ -84,20 +130,11 @@ class Contact extends Component {
                     ></textarea>
                   </div>
 
-                  <div>
-                    <button className="submit">Submit</button>
-                    <span id="image-loader">
-                      <img alt="" src="images/loader.gif" />
-                    </span>
-                  </div>
+                  
                 </fieldset>
               </form>
-
-              <div id="message-warning"> Error boy</div>
-              <div id="message-success">
-                <i className="fa fa-check"></i>Your message was sent, thank you!
-                <br />
-              </div>
+              <button  id="submitButton" className="submit" onClick={this.sendMail}>Submit</button>
+              { this.state.success ? <i id="submit-success" style={{color: "green", marginLeft: "0.5em"}} className="fa fa-check"></i> : null }
             </div>
           </Slide>
 
