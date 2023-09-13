@@ -5,7 +5,7 @@ This website is a React-based project, use [yin-resume-api](https://github.com/Y
 
 ![img](https://github.com/Yin-FR/Yin-Resume/blob/master/public/images/yin-resume-web.png?raw=true)
 
-[**LIVE DEMO**](https://yin-fr.github.io)
+[**LIVE DEMO**](https://yincodeworld.com)
 
 # Run Project
 ### 1. Clone the project
