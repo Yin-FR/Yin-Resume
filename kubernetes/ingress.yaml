@@ -21,7 +21,8 @@ metadata:
   annotations:
     ingress.gcp.kubernetes.io/pre-shared-cert: "yincodeworld-cert"
     kubernetes.io/ingress.global-static-ip-name: "yin-resume-ip"
-    kubernetes.io/ingress.allow-http: "false"
+    kubernetes.io/ingress.allow-http: "true"
+    networking.gke.io/v1beta1.FrontendConfig: "yin-resume-web-frontend-config"
 spec:
   rules:
   - host: yincodeworld.com

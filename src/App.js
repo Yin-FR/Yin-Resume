@@ -8,6 +8,7 @@ import About from "./Components/About";
 import Resume from "./Components/Resume";
 import Contact from "./Components/Contact";
 import Portfolio from "./Components/Portfolio";
+import ChatBox from "./Components/ChatBox"
 import "./config"
 
 class App extends Component {
@@ -110,6 +111,7 @@ class App extends Component {
         <Portfolio data={this.state.projectData} />
         <Contact data={this.state.descData[0]} />
         <Footer data={this.state.networkData} />
+        <ChatBox />
       </div>
     );
   }
