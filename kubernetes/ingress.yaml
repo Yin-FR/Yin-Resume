@@ -25,7 +25,7 @@ metadata:
     networking.gke.io/v1beta1.FrontendConfig: "yin-resume-web-frontend-config"
 spec:
   rules:
-  - host: yincodeworld.com
+  - host: cv.yincodeworld.com
     http:
       paths:
       - pathType: ImplementationSpecific
